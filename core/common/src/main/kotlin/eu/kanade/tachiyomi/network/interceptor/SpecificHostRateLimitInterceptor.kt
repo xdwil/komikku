@@ -31,7 +31,6 @@ fun OkHttpClient.Builder.rateLimitHost(
     period: Long = 1,
     unit: TimeUnit = TimeUnit.SECONDS,
 ) = this
-)
 
 /**
  * An OkHttp interceptor that handles given url host's rate limiting.
