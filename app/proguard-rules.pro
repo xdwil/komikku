@@ -63,7 +63,7 @@
     kotlinx.serialization.KSerializer serializer(...);
 }
 
--keep,includedescriptorclasses class eu.kanade.**$$serializer { *; }
+-keep,includedescriptorclasses class eu.kanade.**$serializer { *; }
 -keepclassmembers class eu.kanade.** {
     *** Companion;
 }
@@ -71,7 +71,7 @@
     kotlinx.serialization.KSerializer serializer(...);
 }
 
--keep,includedescriptorclasses class tachiyomi.**$$serializer { *; }
+-keep,includedescriptorclasses class tachiyomi.**$serializer { *; }
 -keepclassmembers class tachiyomi.** {
     *** Companion;
 }
@@ -79,7 +79,7 @@
     kotlinx.serialization.KSerializer serializer(...);
 }
 
--keep,includedescriptorclasses class exh.**$$serializer { *; }
+-keep,includedescriptorclasses class exh.**$serializer { *; }
 -keepclassmembers class exh.** {
     *** Companion;
 }
@@ -88,7 +88,7 @@
 }
 
 # Filter serializer
--keep,includedescriptorclasses class xyz.nulldev.ts.api.http.serializer.**$$serializer { *; }
+-keep,includedescriptorclasses class xyz.nulldev.ts.api.http.serializer.**$serializer { *; }
 -keepclassmembers class xyz.nulldev.ts.api.http.serializer.** {
     *** Companion;
 }
@@ -127,10 +127,6 @@
 # XmlUtil
 -keep public enum nl.adaptivity.xmlutil.EventType { *; }
 
-# Firebase
--keep class com.google.firebase.installations.** { *; }
--keep interface com.google.firebase.installations.** { *; }
-
 # Google Drive
 -keep class com.google.api.services.** { *; }
 
@@ -161,18 +157,6 @@
 
 # === RxBinding
 -dontwarn com.google.auto.value.AutoValue
-
-# === Crashlytics
--keepattributes *Annotation*
--keepattributes SourceFile,LineNumberTable
--keep class com.crashlytics.** { *; }
--dontwarn com.crashlytics.**
--keep class com.google.firebase.crashlytics.** { *; }
--keep public class * extends java.lang.Exception  # Optional: Keep custom exceptions.
-
-# === Humanize + Guava: https://github.com/google/guava/wiki/UsingProGuardWithGuava
--dontwarn javax.lang.model.element.Modifier
--keep class org.ocpsoft.prettytime.i18n.**
 
 # Note: We intentionally don't add the flags we'd need to make Enums work.
 # That's because the Proguard configuration required to make it work on
