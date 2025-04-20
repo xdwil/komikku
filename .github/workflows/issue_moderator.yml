@@ -11,11 +11,10 @@ permissions:
 
 jobs:
   moderate:
-    runs-on: 'ubuntu-24.04'
+    runs-on: 'ubuntu-latest'
     steps:
       - name: Moderate issues
-        uses: tachiyomiorg/issue-moderator-action@32a31ab12ad6e68ebf4c65408f47bef132d4fd3c # v2.6.1
-        # uses: keiyoushi/issue-moderator-action@a017be83547db6e107431ce7575f53c1dfa3296a
+        uses: tachiyomiorg/issue-moderator-action@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           duplicate-label: Duplicate
@@ -44,7 +43,7 @@ jobs:
                 "type": "both",
                 "regex": "^.*(myanimelist|mal).*$",
                 "ignoreCase": true,
-                "message": "For issues with linking MyAnimeList, please follow these steps:\n1. Update Komikku to latest version\n2. Change your default User-Agent (`More → Settings → Advanced → Default user agent string`)\n3. Close and restart App\n4. Attempt to link MyAnimeList again\n\nIf you had MyAnimeList linked before, try to unlink it first before trying these steps."
+                "message": "For issues with linking MyAnimeList, please follow these steps:\\n1. Update Komikku to latest version\\n2. Change your default User-Agent (`More → Settings → Advanced → Default user agent string`)\\n3. Close and restart App\\n4. Attempt to link MyAnimeList again\\n\\nIf you had MyAnimeList linked before, try to unlink it first before trying these steps."
               }
             ]
           auto-close-ignore-label: do-not-autoclose
