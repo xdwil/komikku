@@ -7,6 +7,7 @@ import okhttp3.Response
 import java.io.IOException
 import java.util.ArrayDeque
 import java.util.concurrent.Semaphore
+import java.util.concurrent.TimeUnit
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
