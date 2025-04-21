@@ -95,7 +95,7 @@ body:
           required: true
         - label: I have gone through the [FAQ](https://komikku-app.github.io/docs/faq/general) and [troubleshooting guide](https://komikku-app.github.io/docs/guides/troubleshooting/).
           required: true
-        - label: I have updated the app to version **[latest](https://github.com/komikku-app/komikku/releases/latest)**.
+        - label: I have updated the app to version **[latest](https://github.com/xdwil/komikku/releases/latest)**.
           required: true
         - label: I have filled out all of the requested information in this form, including specific version numbers.
           required: true
