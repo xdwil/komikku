@@ -7,10 +7,6 @@ on:
     paths:
       - '**'
       - '!**.md'
-  # pull_request:
-  #   paths-ignore:
-  #     - '**.md'
-  # Dispatch or Manual triggers
   workflow_dispatch:
 
 concurrency:
@@ -24,7 +20,6 @@ jobs:
   build:
     name: Build app
     runs-on: 'ubuntu-latest'
-
     steps:
       - name: Clone repo
         uses: actions/checkout@v4
@@ -70,18 +65,13 @@ jobs:
           echo "VERSION_TAG=$version_tag" >> $GITHUB_OUTPUT
           echo "COMMIT_COUNT=$commit_count"
           echo "COMMIT_COUNT=$commit_count" >> $GITHUB_OUTPUT
-          
-          # Move ARM64 and ARM7 APKs
-          mv app/build/outputs/apk/release/app-arm64-v8a-release-unsigned-signed.apk Komikku-arm64-v8a-$version_tag-r$commit_count.apk
-          mv app/build/outputs/apk/release/app-armeabi-v7a-release-unsigned-signed.apk Komikku-armeabi-v7a-$version_tag-r$commit_count.apk
+          mv app/build/outputs/apk/release/app-arm64-v8a-release-unsigned-signed.apk Komikku-$version_tag-r$commit_count.apk
 
-      - name: Upload APKs
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: komikku-apks
-          path: |
-            Komikku-arm64-v8a-${{ steps.current_commit.outputs.VERSION_TAG }}-r${{ steps.current_commit.outputs.COMMIT_COUNT }}.apk
-            Komikku-armeabi-v7a-${{ steps.current_commit.outputs.VERSION_TAG }}-r${{ steps.current_commit.outputs.COMMIT_COUNT }}.apk
+          name: Komikku-${{ steps.current_commit.outputs.VERSION_TAG }}-r${{ steps.current_commit.outputs.COMMIT_COUNT }}.apk
+          path: ./*.apk
           retention-days: 14
 
       - name: Upload mapping
